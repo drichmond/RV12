@@ -49,6 +49,7 @@ module riscv_core #(
   parameter            HAS_MULDIV      = 0,
   parameter            HAS_AMO         = 0,
   parameter            HAS_RVC         = 0,
+  parameter            HAS_DEBUG       = 0,
   parameter            IS_RV32E        = 0,
 
   parameter            MULT_LATENCY    = 0,
@@ -379,6 +380,8 @@ generate
     mmu ( );
 endgenerate
 
+generate
+  if (HAS_DEBUG == 0)
 
   /*
    * Debug Unit
@@ -390,6 +393,21 @@ endgenerate
     .EXCEPTION_SIZE ( EXCEPTION_SIZE )
   )
   du_unit ( .* );
+else
+  // Tie External Interface to 0
+  assign dbg_dato = 0;
+  assign dbg_ack = 0;
+  assign dbg_bp = 0;
+
+  // Tie Intra-module interface to 0
+  assign du_we_rf = 0;
+  assign du_we_frf = 0;
+  assign du_we_csr = 0;
+  assign du_we_pc = 0;
+  assign du_addr = x;
+  assign du_dato = 0;
+   
+endgenerate
 
 endmodule
 
