@@ -34,7 +34,8 @@
 //  License.                                                   //
 //                                                             //
 /////////////////////////////////////////////////////////////////
-
+import riscv_du_pkg::*;
+ 
 module riscv_du #(
   parameter XLEN           = 32,
   parameter INSTR_SIZE     = 32,
@@ -50,7 +51,7 @@ module riscv_du #(
   input                           dbg_stall,
   input                           dbg_strb,
   input                           dbg_we,
-  input      [riscv_du_pkg::DBG_ADDR_SIZE -1:0] dbg_addr,
+  input      [DBG_ADDR_SIZE -1:0] dbg_addr,
   input      [XLEN          -1:0] dbg_dati,
   output reg [XLEN          -1:0] dbg_dato,
   output reg                      dbg_ack,
@@ -65,7 +66,7 @@ module riscv_du #(
   output reg                      du_we_frf,
   output reg                      du_we_csr,
   output reg                      du_we_pc,
-  output reg [riscv_du_pkg::DU_ADDR_SIZE-1:0] du_addr,
+  output reg [DU_ADDR_SIZE-1:0] du_addr,
   output reg [XLEN          -1:0] du_dato,
   output     [              31:0] du_ie,
   input      [XLEN          -1:0] du_dati_rf,

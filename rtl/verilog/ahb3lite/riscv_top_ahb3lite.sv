@@ -34,6 +34,8 @@
 //  License.                                                   //
 //                                                             //
 /////////////////////////////////////////////////////////////////
+import riscv_pkg::*;
+import riscv_du_pkg::*;
 
 module riscv_top_ahb3lite #(
   parameter            XLEN               = 32,
@@ -77,7 +79,7 @@ module riscv_top_ahb3lite #(
   parameter            UTVEC_DEFAULT      = PC_INIT -'h100,
 
   parameter            VENDORID           = 16'h0001,
-  parameter            ARCHID             = (1<<XLEN) | 12,
+  parameter            ARCHID             = 64'h000000010000000C,
   parameter            REVMAJOR           = 4'h0,
   parameter            REVMINOR           = 4'h0,
 
@@ -126,7 +128,7 @@ module riscv_top_ahb3lite #(
   input                        dbg_stall,
   input                        dbg_strb,
   input                        dbg_we,
-  input  [riscv_du_pkg::DBG_ADDR_SIZE-1:0] dbg_addr,
+  input  [DBG_ADDR_SIZE-1:0] dbg_addr,
   input  [XLEN           -1:0] dbg_dati,
   output [XLEN           -1:0] dbg_dato,
   output                       dbg_ack,
