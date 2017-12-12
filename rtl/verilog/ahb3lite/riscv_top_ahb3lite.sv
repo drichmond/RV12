@@ -50,6 +50,7 @@ module riscv_top_ahb3lite #(
   parameter            HAS_RVM            = 0,
   parameter            HAS_RVA            = 0,
   parameter            HAS_RVC            = 0,
+  parameter            HAS_DEBUG          = 0,
   parameter            IS_RV32E           = 0,
 
   parameter            MULT_LATENCY       = 0,
@@ -190,6 +191,7 @@ module riscv_top_ahb3lite #(
     .HAS_RVM        ( HAS_RVM         ),
     .HAS_RVA        ( HAS_RVA         ),
     .HAS_RVC        ( HAS_RVC         ),
+    .HAS_DEBUG      ( HAS_DEBUG       ),
     .IS_RV32E       ( IS_RV32E        ),
 	 
     .MULT_LATENCY   ( MULT_LATENCY    ),
