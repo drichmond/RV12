@@ -404,7 +404,7 @@ else
   assign du_we_frf = 0;
   assign du_we_csr = 0;
   assign du_we_pc = 0;
-  assign du_addr = x;
+  assign du_addr = 0;
   assign du_dato = 0;
    
 endgenerate
