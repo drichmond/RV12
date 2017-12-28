@@ -584,7 +584,6 @@ endgenerate
     if      (!rstn               ) way_random <= 'h0;
     else if (!filling && !writing) way_random <= {way_random, way_random[19] ~^ way_random[16]};
 
-
 generate
   //Fix way-select for Direct Mapped cache (WAYS=1)
   if (WAYS == 1)

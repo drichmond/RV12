@@ -382,7 +382,6 @@ endgenerate
     if      (!rstn   ) way_random <= 'h0;
     else if (!filling) way_random <= {way_random, way_random[19] ~^ way_random[16]};
 
-
 generate
   //Fix way-select for Direct Mapped cache (WAYS=1)
   if (WAYS == 1)
@@ -390,7 +389,6 @@ generate
   else
     assign fill_way_select_rnd = 1 << way_random[LRU_BITS-1:0];
 endgenerate
-
 
   //select which way to fill (implement replacement algorithms)
 generate
